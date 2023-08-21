@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Standard Colours - V 0.1.2</title>
+        <style>
+
+html {
+    font-family: sans-serif;
+}
+
+h1 {
+    padding: 1em;
+    font-weight: bold;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+}
+
+.my-bar {
+    flex-direction: column-reverse;
+    display: flex;
+    text-align: center;
+    margin: auto 0.5em;
+}
+
+.my-bar > div {
+    width: 3em;
+    height: 1.5em;
+    line-height: 1.5em;
+    content: '&nbsp;';
+    border: 1px solid black;
+}
+
+.dark {
+    color: white;
+    background-color: black;
+}
+
+.my-bar.dark > div {
+    border: 1px solid white;
+}
+
+.spaced {
+    margin: auto 0.5em;
+}
+
+.rgb > div, .cym > div {
+    width: 10em;
+    height: 10em;
+    border-radius: 5em;
+    background-color: blue;
+    content: '&nbsp;';
+}
+
+.rgb > div {
+    border: 1px solid black;
+}
+
+.cym > div {
+    border: 1px solid white;
+}
+
+ul {
+    list-style-type: disclosure-closed;
+}
+
+li {
+    margin: 0.5em;
+}
+.link:hover {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.link-disabled {
+    color: #444;
+    text-decoration: line-through;
+}
+
+.big {
+    font-size: 3em;
+}
+
+.page {
+    display: none;
+}
+
+#extraTop {
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 2em;
+}
+#extraBottom {
+    font-size: 1em;
+    font-style: italic;
+    margin-left: 2em;
+}
+
+button {
+    margin-top: 1em;
+    width: 8em;
+}
+
+        </style>
+        <script src="script.js" type="module"></script>
+    </head>
+    <body>
+        <p id="extraTop"></p>
+        <div id="pgMenu" class="page">
+            <h1>Standard Colours - V 0.1.2 by <a href="https://github.com/DarioDaF">DarioDaF</a></h1>
+            <ul>
+                <li id="lLearning" class="link">Learning mode</li>
+                <li id="lQuickplay"  class="link">Quickplay</li>
+                <li id="l2v2"  class="link-disabled" title="Wait for it (not implemented yet)">2v2 battle</li>
+                <li id="lHardcore"  class="link">Hardcore</li>
+            </ul>
+        </div>
+        <div id="pgDifficulty" class="page">
+            <h1>Choose difficulty</h1>
+            <div class="box">
+                <div id="bDifficulty" class="my-bar" data-max="10" data-fill="#555" data-bg="#FFF" data-nodifficulty="1"></div>
+                <div class="spaced">
+                    <p>You can click on the bar to fill it (clicking on MAX will fill it full and clicking to the lowest box will make it empty)</p>
+                    <p>* Empty means progressive (not implemented yet)</p>
+                    <div class="spaced"><button class="confirm">Confirm</button></div>
+                    <div class="spaced"><button id="btnBack">Back</button></div>
+                </div>
+            </div>
+        </div>
+        <div id="pgRGB" class="page">
+            <h1>RGB</h1>
+            <div class="box">
+                <div id="bRed" class="my-bar" data-fill="#F00"  data-bg="#FFF"></div>
+                <div id="bGreen" class="my-bar" data-fill="#0F0" data-bg="#FFF"></div>
+                <div id="bBlue" class="my-bar" data-fill="#00F" data-bg="#FFF"></div>
+                <div class="spaced big">=</div>
+                <div id="cMyRGB" class="rgb spaced"></div>
+                <div class="spaced big">?=</div>
+                <div id="cTargetRGB" class="rgb spaced"></div>
+                <div class="spaced"><button class="confirm">Confirm</button></div>
+            </div>
+        </div>
+        <div id="pgCYM" class="dark page">
+            <h1>CYM</h1>
+            <div class="box">
+                <div id="bCyan" class="my-bar dark" data-fill="#0FF" data-bg="#000"></div>
+                <div id="bYellow" class="my-bar dark" data-fill="#FF0" data-bg="#000"></div>
+                <div id="bMagenta" class="my-bar dark" data-fill="#F0F" data-bg="#000"></div>
+                <div class="spaced big">=</div>
+                <div id="cMyCYM" class="cym spaced"></div>
+                <div class="spaced big">?=</div>
+                <div id="cTargetCYM" class="cym spaced"></div>
+                <div class="spaced"><button class="confirm">Confirm</button></div>
+            </div>
+        </div>
+        <p id="extraBottom"></p>
+    </body>
+</html>
